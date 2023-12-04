@@ -1,21 +1,23 @@
-import logo from './logo.svg';
 import './App.scss';
-import { useEffect } from 'react';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Home from './Pages/Home';
 import Navbar from './Pages/Navbar';
-import Explore from './Pages/Explore';
+import Explore2 from './Pages/Explore';
+import Genres from './Pages/Genres';
+import Movie from './Pages/Movie';
 
 function App() {
   return (
     <div className="App">
-      <BrowserRouter>
+      <Router>
       <Navbar />
         <Routes>
           <Route path='/' element={<Home />} />
-          <Route path='/explore' element={<Explore />} />
+          <Route path='/explore' element={<Explore2 />} />
+          <Route path='/genre' element={<Genres />} />
+          <Route path='/:id' element={<Movie />} />
         </Routes>
-      </BrowserRouter>
+      </Router>
     </div>
   );
 }

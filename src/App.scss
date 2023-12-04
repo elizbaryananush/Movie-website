@@ -10,6 +10,7 @@
 
 :root {
   --pink: rgba(255, 0, 135, 1);
+  --black: rgb(87, 0, 61);
 }
 
 li {
@@ -20,19 +21,32 @@ a {
   font-style: none !important;
 }
 
+.App {
+  padding-top: 120px;
+}
+
 @media(min-width:450px) {
   .Navbar {
-    width: 100%;
+    width: 90%;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 40px 200px 0 10%;
+    padding: 10px 5% 10px 5%;
     position: absolute;
+    top: 40px;
+    background-color: white;
     z-index: 3;
+    left: 50%;
+    transform: translateX(-50%);
+    // margin: 0 auto;
+    border-radius: 10px;
+    // border: var(--pink) 1px solid;
 
     .logo {
+      background-color: white;
+
       h1 {
-        color: black;
+        color: var(--black);
         font-size: 35px;
         font-weight: 600;
         font-style: normal;
@@ -44,6 +58,7 @@ a {
     }
 
     nav {
+
       ul {
         display: flex;
         align-items: center;
@@ -52,7 +67,7 @@ a {
 
         li {
           a {
-            color: black;
+            color: var(--black);
             font-size: 16px;
             font-weight: 500;
             font-style: normal;

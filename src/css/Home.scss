@@ -10,6 +10,7 @@
 
 :root {
     --pink: rgba(255, 0, 135, 1);
+    --black: rgb(87, 0, 61);
 }
 
 h1 {
@@ -28,7 +29,7 @@ h1 {
     background-color: transparent;
     border: 1px var(--pink) solid;
     border-radius: 10px;
-    color: black;
+    color: var(--black);
     font-size: 16px;
     font-weight: 500;
     line-height: 20px;
@@ -59,9 +60,10 @@ h1 {
     }
 }
 
-@media(min-width: 450px) {
+@media(min-width: 1440px) {
     .Home {
-        z-index: -1;
+        position: relative;
+        top: -120px;
 
         .Hero {
             position: relative;
@@ -89,7 +91,7 @@ h1 {
 
                 p {
                     width: 70%;
-                    color: black;
+                    color: var(--black);
                     font-size: 16px;
                     font-weight: 300;
                     line-height: 20px;
@@ -109,16 +111,16 @@ h1 {
 
                 .image2 {
                     position: relative;
-                    max-width: 45%;
-                    left: 20vh;
-                    top: -10vh;
+                    width: 40vh;
+                    left: 13vh;
+                    top: -2vh;
                     z-index: -1;
                     opacity: 0.8;
                 }
 
                 .img1 {
                     position: absolute;
-                    width: calc(53% + 60px);
+                    width: calc(43vh + 60px);
                     height: fit-content;
                     padding-left: 50px;
                     padding-right: 10px;
@@ -126,6 +128,7 @@ h1 {
                     border-bottom: 1px var(--pink) solid;
                     border-left: 1px var(--pink) solid;
                     border-bottom-left-radius: 10px;
+                    top: 5vh;
 
                     img {
                         width: 100%;
@@ -154,8 +157,6 @@ h1 {
                     margin-left: 10%;
                 }
 
-                // .arrowDiv {
-                // display: flex;
                 .arrowDiv {
                     position: relative;
 
@@ -173,21 +174,22 @@ h1 {
                         cursor: pointer;
                         width: fit-content;
                         height: fit-content;
+                        z-index: 3;
 
-                        svg{
+                        svg {
                             width: 30px;
                             height: 30px;
                         }
 
-                        &:hover{
+                        &:hover {
                             border-color: rgb(108, 0, 52);
 
-                            svg{
+                            svg {
                                 fill: rgb(108, 0, 52);
                             }
                         }
 
-                        &:active{
+                        &:active {
                             transform: translateY(-50%) scale(0.9);
                         }
                     }
@@ -290,7 +292,270 @@ h1 {
                 margin-left: 50%;
                 transform: translateX(-50%);
 
-                &:active{
+                &:active {
+                    transform: translateX(-50%) scale(0.96);
+                }
+            }
+        }
+    }
+}
+
+@media(max-width: 1440px) {
+    .Home {
+        position: relative;
+        top: -120px;
+
+        .Hero {
+            position: relative;
+            width: 80%;
+            margin-left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 100vh;
+
+            .text {
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                // gap: 20px;
+
+                h1 {
+                    background-image: linear-gradient(to right, #ff0059, #962ee5);
+                    -webkit-background-clip: text;
+                    color: transparent;
+                    font-size: 60px;
+                    line-height: 60px;
+                }
+
+                p {
+                    width: 70%;
+                    color: var(--black);
+                    font-size: 12px;
+                    font-weight: 500;
+                    line-height: 15px;
+                    letter-spacing: 1px;
+                    margin-bottom: 15px;
+                }
+
+                .btn {
+                    font-size: 12px;
+
+                    div {
+                        padding: 5px;
+
+                        svg {
+                            width: 10px;
+                            height: 10px;
+                        }
+                    }
+                }
+            }
+
+            .imgDiv {
+                width: 90%;
+                position: relative;
+                display: flex;
+                justify-content: space-evenly;
+
+                img {
+                    border-radius: 10px;
+                }
+
+                .image2 {
+                    position: relative;
+                    width: 20vw;
+                    height: 50vh;
+                    left: 13vh;
+                    top: -5vh;
+                    z-index: -1;
+                    opacity: 0.8;
+
+                    img{
+                        height: 100%;
+                        width: 100%;
+                        object-fit: contain;
+                    }
+                }
+
+                .img1 {
+                    position: absolute;
+                    width: calc(25vw + 60px);
+                    height: 67vh;
+                    padding-left: 50px;
+                    padding-right: 10px;
+                    padding-bottom: 50px;
+                    border-bottom: 1px var(--pink) solid;
+                    border-left: 1px var(--pink) solid;
+                    border-bottom-left-radius: 10px;
+                    top: 5vh;
+
+                    img {
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                        // height: auto;
+                    }
+                }
+            }
+        }
+
+        .List {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            margin: 120px 0;
+            margin-left: 50%;
+            transform: translateX(-50%);
+            white-space: nowrap;
+            gap: 80px;
+
+            .popular {
+                display: flex;
+                flex-direction: column;
+
+                h1 {
+                    color: var(--pink);
+                    margin-left: 10%;
+                }
+
+                .arrowDiv {
+                    position: relative;
+
+                    .arrow {
+                        position: absolute;
+                        top: 50%;
+                        transform: translateY(-50%);
+                        fill: var(--pink);
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-around;
+                        padding: 5px;
+                        border-radius: 50px;
+                        border: 2px var(--pink) solid;
+                        cursor: pointer;
+                        width: fit-content;
+                        height: fit-content;
+                        z-index: 3;
+
+                        svg {
+                            width: 30px;
+                            height: 30px;
+                        }
+
+                        &:hover {
+                            border-color: rgb(108, 0, 52);
+
+                            svg {
+                                fill: rgb(108, 0, 52);
+                            }
+                        }
+
+                        &:active {
+                            transform: translateY(-50%) scale(0.9);
+                        }
+                    }
+
+                    .left {
+                        left: 20px;
+                        z-index: 2;
+                    }
+
+                    .right {
+                        right: 20px;
+                    }
+
+                    .grid {
+                        overflow-x: hidden;
+                        padding: 40px;
+                        position: relative;
+                        left: -40px;
+                        width: 80%;
+                        margin-left: 50%;
+                        transform: translateX(-50%);
+                        background: transparent;
+
+                        .movies {
+                            display: flex;
+                            gap: 40px;
+                            height: 100%;
+                            align-items: center;
+
+                            .movie {
+                                display: flex;
+                                border-radius: 10px;
+                                cursor: pointer;
+                                position: relative;
+                                width: 200px;
+                                height: 280px;
+                                flex-grow: 0;
+                                flex-shrink: 0;
+                                flex-basis: 200px;
+
+                                img {
+                                    height: 100%;
+                                    object-fit: cover;
+                                    border-radius: 10px;
+                                    z-index: -1;
+                                }
+
+                                .text {
+                                    display: none;
+                                    padding: 2rem;
+                                    position: absolute;
+                                    max-width: 200px;
+                                    white-space: normal;
+                                    height: fit-content;
+                                    bottom: 0 !important;
+                                    left: 0;
+
+                                    h4 {
+                                        width: 100%;
+                                        font-size: 20px;
+                                        font-weight: 500;
+                                        color: white;
+                                        overflow-wrap: break-word !important;
+                                    }
+
+                                    p {
+                                        color: white;
+                                        font-size: 14px;
+                                        font-weight: 300;
+                                    }
+                                }
+
+                                &:hover {
+                                    background: linear-gradient(0deg, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.6), rgba(255, 255, 255, 0));
+                                    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+                                    flex-basis: 300px;
+
+                                    .text {
+                                        display: flex;
+                                        flex-direction: column;
+                                        gap: 7px;
+                                    }
+
+                                    img {
+                                        width: 300px;
+                                    }
+                                }
+
+                                &:active {
+                                    flex-basis: 300px;
+                                    background: linear-gradient(0deg, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.6), rgba(255, 255, 255, 0));
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            .btn {
+                margin-left: 50%;
+                transform: translateX(-50%);
+
+                &:active {
                     transform: translateX(-50%) scale(0.96);
                 }
             }

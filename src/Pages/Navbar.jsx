@@ -25,21 +25,6 @@ function Navbar() {
                             Genre
                         </NavLink>
                     </li>
-                    <li>
-                        <NavLink to="/news" className={location === '/news' ? 'active' : null}>
-                            News
-                        </NavLink>
-                    </li>
-                    <li>
-                        <NavLink to="/movies" className={location === '/movies' ? 'active' : null}>
-                            Movies
-                        </NavLink>
-                    </li>
-                    <li>
-                        <NavLink to="/tvshows" className={location === '/tvshows' ? 'active' : null}>
-                            TV Shows
-                        </NavLink>
-                    </li>
                 </ul>
             </nav>
         </div>

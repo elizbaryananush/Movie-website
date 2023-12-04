@@ -8,9 +8,11 @@ function Hero() {
             <div className="text">
                 <h1>Movies Unleashed</h1>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium mollitia pariatur, dolor repellat quis doloribus id esse impedit ut. Obcaecati labore totam quam quia aut iusto sunt reiciendis, nesciunt assumenda!</p>
-                <button className='btn'>
+                <button onClick={() => {
+                    window.location.href = '/explore'
+                }} className='btn'>
                     <div>
-                        <svg xmlns="http://www.w3.org/2000/svg" id="Layer_1" data-name="Layer 1" viewBox="0 0 24 24" width="512" height="512">
+                        <svg xmlns="http://www.w3.org/2000/svg" id="Layer_1" data-name="Layer 1" viewBox="0 0 24 24">
                             <path d="M19.749,9.464,5,.048V23.989L19.743,14.54a3,3,0,0,0,.006-5.076Z" />
                         </svg>
                     </div>

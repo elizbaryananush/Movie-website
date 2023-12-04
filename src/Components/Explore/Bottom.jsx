@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import homecss from '../../css/Home.scss'
 
-function List() {
+function Bottom({ style }) {
     const [currentIndex, setCurrentIndex] = useState(0);
     const [currentIndex2, setCurrentIndex2] = useState(0);
     const api_key = process.env.REACT_APP_API_KEY;
@@ -73,10 +72,15 @@ function List() {
         }
     };
 
+    useEffect(() => {
+        setCurrentIndex(0)
+        setCurrentIndex2(0)
+    }, [style])
+
     return (
-        <div className='List'>
+        <div style={style ? { display: 'none' } : { display: 'flex' }} className='Bottom'>
             <div className="popular popmov">
-                <h1>Popular Movies</h1>
+                <h1>Popular <span>Movies</span></h1>
                 <div className="arrowDiv">
                     <div className="grid">
                         <div style={movie && currentIndex !== 0 ? { transform: `translateX(-${currentIndex * movie.clientWidth + currentIndex * 40}px)` } : null} className="movies">
@@ -111,10 +115,10 @@ function List() {
                 </div>
             </div>
             <div className="popular latest">
-                <h1>Latest Movies</h1>
+                <h1>Latest <span>Movies</span></h1>
                 <div className="arrowDiv">
                     <div className="grid">
-                        <div style={movie && currentIndex2 !== 0 ? { transform: `translateX(-${currentIndex2 * movie.clientWidth + currentIndex2 * 40}px)` } : null} className="movies">
+                        <div style={movie ? { transform: `translateX(-${currentIndex2 * movie.clientWidth + currentIndex2 * 40}px)` } : null} className="movies">
                             {
                                 popularSeries ? popularSeries.map((item, index) => {
                                     return <div
@@ -138,25 +142,15 @@ function List() {
                             <path d="M9,17.88V6.71A1,1,0,0,1,10.71,6l5.58,5.59a1,1,0,0,1,0,1.41l-5.58,5.59A1,1,0,0,1,9,17.88Z" />
                         </svg>
                     </div>
-                    <div onClick={(e) => goToPrev2(e)} className="arrow left">
+                    <div onClick={(e) => goToPrev2()} className="arrow left">
                         <svg xmlns="http://www.w3.org/2000/svg" id="Outline" viewBox="0 0 24 24" >
                             <path d="M13.29,18.59,7.71,13a1,1,0,0,1,0-1.41L13.29,6A1,1,0,0,1,15,6.71V17.88A1,1,0,0,1,13.29,18.59Z" />
                         </svg>
                     </div>
                 </div>
             </div>
-            <button onClick={() => {
-                    window.location.href = '/explore'
-                }} className='btn'>
-                <div>
-                    <svg xmlns="http://www.w3.org/2000/svg" id="Layer_1" data-name="Layer 1" viewBox="0 0 24 24" width="80" height="80">
-                        <path d="M19.749,9.464,5,.048V23.989L19.743,14.54a3,3,0,0,0,.006-5.076Z" />
-                    </svg>
-                </div>
-                Watch Movie
-            </button>
         </div>
     )
 }
 
-export default List
+export default Bottom
