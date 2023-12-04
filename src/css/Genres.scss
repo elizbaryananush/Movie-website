@@ -71,29 +71,23 @@ h1 {
         overflow-x: hidden;
 
         .filters {
-            // position: relative;
             margin: 0 auto;
             width: 80%;
             box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
             overflow-x: hidden;
             margin-bottom: 1rem;
-            // z-index: 2 !important;
 
             .slider {
                 display: flex;
-                // overflow-x: scroll;
                 align-items: center;
                 gap: 10px;
                 padding: 0 1rem;
-                // position: absolute;
 
                 button {
                     white-space: nowrap;
                     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
                     border-color: var(--pink);
                     margin: 1rem 0;
-                    // position: absolute;
-                    // pointer-events: none;
                 }
 
                 .active {
@@ -290,6 +284,7 @@ h1 {
         gap: 80px;
         box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
         overflow-x: hidden;
+        padding-top: 120px;
 
         .filters {
             margin: 0 auto;

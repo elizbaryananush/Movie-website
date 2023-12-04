@@ -85,12 +85,6 @@ h1 {
             }
         }
 
-        .line {
-            width: 80%;
-            height: 1px;
-            margin: 0 auto;
-        }
-
         .top {
             display: flex;
             align-items: center;
@@ -693,8 +687,6 @@ h1 {
             }
         }
 
-
-
         .Bottom {
             display: flex;
             flex-direction: column;
@@ -876,12 +868,6 @@ h1 {
                 object-fit: cover;
                 cursor: pointer;
             }
-        }
-
-        .line {
-            width: 80%;
-            height: 1px;
-            margin: 0 auto;
         }
 
         .top {
@@ -1249,5 +1235,12 @@ h1 {
                 }
             }
         }
+    }
+}
+
+@media (max-width : 900px) {
+    .Explore {
+        position: absolute;
+        top: 120px !important;
     }
 }

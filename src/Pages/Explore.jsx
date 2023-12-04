@@ -44,25 +44,25 @@ function Explore2() {
           }}
           src={image1} />
         <img
-        onClick={() => {
-          window.location.href = `/569094`
-        }}
-         src={image2} />
+          onClick={() => {
+            window.location.href = `/569094`
+          }}
+          src={image2} />
         <img
-        onClick={() => {
-          window.location.href = `/545611`
-        }}
-        src={image3} />
+          onClick={() => {
+            window.location.href = `/545611`
+          }}
+          src={image3} />
         <img
-        onClick={() => {
-          window.location.href = `/1930`
-        }} 
-        src={image4} />
-        <img 
-        onClick={() => {
-          window.location.href = `/19995`
-        }}
-        src={image5} />
+          onClick={() => {
+            window.location.href = `/1930`
+          }}
+          src={image4} />
+        <img
+          onClick={() => {
+            window.location.href = `/19995`
+          }}
+          src={image5} />
       </div>
       <div className="top">
         <h1 style={searchingPage ? { display: 'none' } : { display: 'block' }}>Recomendations</h1>
@@ -137,6 +137,7 @@ function Explore2() {
               searchMovieData && searchMovieData.total_pages && pages.length > 1 ? pages.map((item, index) => {
                 if (pages[index] === number && searchMovieData.page < searchMovieData.total_pages) {
                   return <button
+                    key={index}
                     className={pages[index] === searchMovieData.page ? 'btn first active2' : 'btn'}
                     onClick={(e) => {
                       window.scrollTo({
@@ -194,6 +195,7 @@ function Explore2() {
               searchMovieData && searchMovieData.total_pages && pages.length >= 5 ? pages.map((item, index) => {
                 if (pages[index] === pages.length) {
                   return <button
+                    key={index}
                     className={pages[index] === searchMovieData.page ? 'btn active2' : 'btn'}
                     onClick={(e) => {
                       window.scrollTo({

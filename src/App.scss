@@ -6,6 +6,7 @@
   padding: 0;
   font-family: 'Ubuntu', sans-serif;
   text-decoration: none;
+  transition: 0.2s;
 }
 
 :root {
@@ -21,64 +22,207 @@ a {
   font-style: none !important;
 }
 
-.App {
-  padding-top: 120px;
-}
 
-@media(min-width:450px) {
+@media(min-width:901px) {
+  .App {
+    padding-top: 120px;
+  }
+
   .Navbar {
-    width: 90%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px 5% 10px 5%;
-    position: absolute;
-    top: 40px;
-    background-color: white;
-    z-index: 3;
-    left: 50%;
-    transform: translateX(-50%);
-    // margin: 0 auto;
-    border-radius: 10px;
-    // border: var(--pink) 1px solid;
 
-    .logo {
-      background-color: white;
-
-      h1 {
-        color: var(--black);
-        font-size: 35px;
-        font-weight: 600;
-        font-style: normal;
-
-        span {
-          color: var(--pink);
-        }
-      }
+    .smallNavbar,
+    .smallUl {
+      display: none;
     }
 
-    nav {
+    .navbar {
+      width: 90%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 5% 10px 5%;
+      position: absolute;
+      top: 40px;
+      background-color: white;
+      z-index: 3;
+      left: 50%;
+      transform: translateX(-50%);
+      border-radius: 10px;
 
-      ul {
-        display: flex;
-        align-items: center;
-        justify-content: space-evenly;
-        gap: 40px;
 
-        li {
-          a {
-            color: var(--black);
+
+      .logo {
+        background-color: white;
+
+        h1 {
+          color: var(--black);
+          font-size: 35px;
+          font-weight: 600;
+          font-style: normal;
+
+          span {
+            color: var(--pink);
+          }
+        }
+      }
+
+      nav {
+
+        ul {
+          display: flex;
+          align-items: center;
+          justify-content: space-evenly;
+          gap: 40px;
+
+          li {
+            a {
+              color: var(--black);
+              font-size: 16px;
+              font-weight: 500;
+              font-style: normal;
+            }
+          }
+
+          .active {
+            color: var(--pink);
             font-size: 16px;
             font-weight: 500;
             font-style: normal;
           }
         }
+      }
+    }
+  }
+}
 
-        .active {
-          color: var(--pink);
-          font-size: 16px;
-          font-weight: 500;
+@media(max-width:900px) {
+
+  .App {
+    width: 100% !important;
+  }
+
+  .Navbar {
+    width: 100%;
+    height: 100vh !important;
+    position: absolute;
+    overflow: hidden;
+
+    .navbar {
+      z-index: -1;
+      width: 90%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 5% 10px 5%;
+      position: absolute;
+      top: 40px;
+      background-color: white;
+      z-index: 3;
+      left: 50%;
+      transform: translateX(-50%);
+      border-radius: 10px;
+
+      .logo {
+        background-color: white;
+
+        h1 {
+          color: var(--black);
+          font-size: 35px;
+          font-weight: 600;
           font-style: normal;
+
+          span {
+            color: var(--pink);
+          }
+        }
+      }
+
+      nav {
+
+        ul {
+          display: none;
+        }
+      }
+
+      .smallNavbar {
+        height: 30px;
+        width: 30px;
+
+        .hover {
+          display: none;
+        }
+
+        svg {
+          width: 35px !important;
+          height: 35px !important;
+          fill: var(--pink);
+        }
+
+        &:hover {
+          .hover {
+            display: block;
+          }
+
+          svg {
+            display: none;
+          }
+        }
+
+        &:active {
+          .hover {
+            display: block;
+          }
+        }
+      }
+    }
+
+
+    .smallUl {
+      position: fixed;
+      height: 120vh !important;
+      background-color: var(--pink);
+      width: 90%;
+      top: -40px;
+      overflow-y: hidden;
+      z-index: 3;
+      padding: 2rem;
+
+      ul {
+        height: 100vh;
+        text-align: end;
+        margin-top: 150px;
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+
+        li {
+          padding: 1rem 4rem;
+          font-size: 34px;
+
+          a {
+            color: white;
+          }
+
+          .active {
+            padding: 1rem 4rem;
+
+            border: 2px white solid;
+            border-radius: 8px;
+          }
+        }
+
+      }
+
+      .cross {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        padding: 3.5rem;
+
+        svg {
+          width: 50px;
+          height: 50px;
+          fill: white;
         }
       }
     }

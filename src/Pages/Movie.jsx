@@ -45,7 +45,9 @@ function Movie() {
                         <div className="genres">
                             {
                                 movieData.genres.map((item, index) => {
-                                    return <div className="item">{item.name}</div>
+                                    return <div
+                                        key={index}
+                                        className="item">{item.name}</div>
                                 })
                             }
                         </div>
