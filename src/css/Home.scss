@@ -888,3 +888,29 @@ h1 {
         }
     }
 }
+
+@media (max-width : 350px) {
+    .Home {
+        .Hero{
+            .text{
+                h1{
+                    font-size: 45px;
+                }
+
+                p{
+                    font-size: 12px;
+                }
+            }
+        }
+
+        .List{
+            .grid{
+                width: 300px !important;
+            }
+
+            .movies{
+                margin-left: 60px;
+            }
+        }
+    }
+}

@@ -851,6 +851,8 @@ h1 {
         overflow-x: hidden;
         display: flex;
         flex-direction: column;
+        position: absolute;
+        top: 120px !important;
 
         .five {
             display: flex;
@@ -1238,9 +1240,42 @@ h1 {
     }
 }
 
-@media (max-width : 900px) {
+@media (max-width : 600px) {
     .Explore {
-        position: absolute;
-        top: 120px !important;
+
+        h1{
+            width: 100%;
+            text-align: center;
+            margin: 0 !important;
+        }
+        .five {
+            img {
+                height: 100px;
+            }
+
+            img:last-child {
+                display: none;
+            }
+
+            img:first-child {
+                display: none;
+            }
+        }
+
+        .top{
+            h1{
+                display: none !important;
+            }
+        }
+
+        .Bottom{
+            .grid{
+                width: 300px !important;
+            }
+
+            .movies{
+                margin-left: 55px;
+            }
+        }
     }
 }

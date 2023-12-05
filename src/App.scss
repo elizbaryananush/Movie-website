@@ -210,7 +210,6 @@ a {
             border-radius: 8px;
           }
         }
-
       }
 
       .cross {
@@ -224,6 +223,56 @@ a {
           height: 50px;
           fill: white;
         }
+      }
+    }
+  }
+}
+
+@media(max-width:900px) {
+  .Navbar {
+    
+    .logo {
+      h1 {
+        font-size: 20px !important;
+      }
+    }
+
+    .smallNavbar {
+      width: 20px;
+      height: 20px;
+
+      svg {
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    .smallUl{
+      padding: 10px;
+
+      ul {
+        height: 100vh;
+        text-align: end;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+
+        li {
+          padding: 10px 40px;
+          font-size: 20px;
+
+          a {
+            color: white;
+          }
+
+          .active {
+            padding: 1rem 4rem;
+
+            border: 2px white solid;
+            border-radius: 8px;
+          }
+        }
+
       }
     }
   }

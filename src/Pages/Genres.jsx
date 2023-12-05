@@ -42,7 +42,7 @@ function Genres() {
     useEffect(() => {
         if (carousel) {
             console.log(carousel.offsetWidth);
-            setWidth(carousel.scrollWidth - 500)
+            setWidth(carousel.scrollWidth)
         }
     }, [carousel])
 
