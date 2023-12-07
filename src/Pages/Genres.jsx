@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react'
 import css from '../css/Genres.scss'
 import { motion } from 'framer-motion';
+import { Stack, Skeleton } from '@mui/material';
 
 function Genres() {
     const api_key = process.env.REACT_APP_API_KEY;
@@ -11,6 +12,24 @@ function Genres() {
     const [number, setNumber] = useState(1)
     const [width, setWidth] = useState()
     const carousel = document.querySelector('.filters')
+    const [size, setSize] = useState(window.innerWidth);
+    const [buttons, setButtons] = useState(window.innerWidth > 700)
+
+    useEffect(() => {
+        const handleResize = () => {
+            setSize(window.innerWidth);
+            setButtons(window.innerWidth > 700);
+            if (carousel) {
+                setWidth(carousel.scrollWidth - carousel.clientWidth)
+            }
+        };
+
+        window.addEventListener('resize', handleResize);
+
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
+    }, []);
 
     const getData = async () => {
         const response = await fetch('https://api.themoviedb.org/3/genre/movie/list?language=en', {
@@ -40,10 +59,16 @@ function Genres() {
     }
 
     useEffect(() => {
-        if (carousel) {
-            console.log(carousel.offsetWidth);
-            setWidth(carousel.scrollWidth)
-        }
+        setTimeout(() => {
+
+            if (carousel != undefined && buttons) {
+                console.log(carousel.scrollWidth - carousel.offsetWidth);
+                setWidth(carousel.scrollWidth - carousel.offsetWidth)
+            } else if (carousel) {
+                setWidth(carousel.scrollWidth - carousel.clientWidth)
+                console.log(carousel.scrollWidth - carousel.clientWidth);
+            }
+        }, [300])
     }, [carousel])
 
     useEffect(() => {
@@ -54,26 +79,30 @@ function Genres() {
     return (
         <div className="Genres">
             <div className='Bottom'>
-                <div
+                <motion.div
                     className="filters">
-                    <motion.div
-                        drag='x'
-                        dragConstraints={{ right: 0, left: -width }}
-                        className="slider">
-                        {
-                            genres ? genres.map((item, index) => {
-                                return <button
-                                    key={index}
-                                    className={genre == item.id ? 'active btn' : 'btn'}
-                                    onClick={() => {
-                                        setGenre(item.id)
-                                        setNumber(1)
-                                        setPages(1)
-                                    }}>{item.name}</button>
-                            }) : null
-                        }
-                    </motion.div>
-                </div>
+                    {
+                        carousel ? <motion.div
+                            style={{ transform: 'translateX(-1px)' }}
+                            drag='x'
+                            dragConstraints={{ left: -width, right: 0 }}
+                            className="slider">
+                            {
+                                genres ? genres.map((item, index) => {
+                                    return <button
+                                        key={index}
+                                        className={genre == item.id ? 'active btn' : 'btn'}
+                                        onClick={() => {
+                                            setGenre(item.id)
+                                            setNumber(1)
+                                            setPages(1)
+                                        }}>{item.name}</button>
+                                }) : null
+                            }
+                        </motion.div> : null
+                    }
+
+                </motion.div>
                 <div className="list">
                     {
                         movieData && movieData.results ? movieData.results.map((item, index) => {

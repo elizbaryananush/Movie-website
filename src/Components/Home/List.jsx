@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import homecss from '../../css/Home.scss'
+import { Stack, Skeleton } from '@mui/material';
 
 function List() {
     const [currentIndex, setCurrentIndex] = useState(0);
@@ -7,6 +8,7 @@ function List() {
     const api_key = process.env.REACT_APP_API_KEY;
     const [popularList, setPopularList] = useState()
     const [popularSeries, setPopularSeries] = useState()
+    const array = [0, 0, 0, 0, 0, 0]
     let grid = document.querySelector('.grid')
     const movie = document.querySelector('.movie')
 
@@ -94,7 +96,11 @@ function List() {
                                         </div>
                                         <img key={index} src={`https://image.tmdb.org/t/p/w300${item.poster_path}`} alt="" />
                                     </div>
-                                }) : null
+                                }) : array.map((item, index) => {
+                                    return <Stack spacing={1}>
+                                        <Skeleton className='skeleton' variant='rectangular' width={200} height={280}/>
+                                    </Stack>
+                                })
                             }
                         </div>
                     </div>
@@ -129,7 +135,11 @@ function List() {
                                         </div>
                                         <img key={index} src={`https://image.tmdb.org/t/p/w300${item.poster_path}`} alt="" />
                                     </div>
-                                }) : null
+                                }) : array.map((item, index) => {
+                                    return <Stack spacing={1}>
+                                        <Skeleton className='skeleton' variant='rectangular' width={200} height={280}/>
+                                    </Stack>
+                                })
                             }
                         </div>
                     </div>
@@ -146,8 +156,8 @@ function List() {
                 </div>
             </div>
             <button onClick={() => {
-                    window.location.href = '/explore'
-                }} className='btn'>
+                window.location.href = '/explore'
+            }} className='btn'>
                 <div>
                     <svg xmlns="http://www.w3.org/2000/svg" id="Layer_1" data-name="Layer 1" viewBox="0 0 24 24" width="80" height="80">
                         <path d="M19.749,9.464,5,.048V23.989L19.743,14.54a3,3,0,0,0,.006-5.076Z" />

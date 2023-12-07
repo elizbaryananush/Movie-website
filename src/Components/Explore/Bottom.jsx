@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { Stack, Skeleton } from '@mui/material';
 
 function Bottom({ style }) {
     const [currentIndex, setCurrentIndex] = useState(0);
@@ -8,6 +9,7 @@ function Bottom({ style }) {
     const [popularSeries, setPopularSeries] = useState()
     let grid = document.querySelector('.grid')
     const movie = document.querySelector('.movie')
+    const array = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 
     const getData = async (e) => {
 
@@ -98,7 +100,11 @@ function Bottom({ style }) {
                                         </div>
                                         <img key={index} src={`https://image.tmdb.org/t/p/w300${item.poster_path}`} alt="" />
                                     </div>
-                                }) : null
+                                }) : array.map((item, index) => {
+                                    return <Stack className='movie' spacing={1}>
+                                        <Skeleton className='skeleton' variant='rectangular' width={200} height={280} />
+                                    </Stack>
+                                })
                             }
                         </div>
                     </div>
@@ -133,7 +139,9 @@ function Bottom({ style }) {
                                         </div>
                                         <img key={index} src={`https://image.tmdb.org/t/p/w300${item.poster_path}`} alt="" />
                                     </div>
-                                }) : null
+                                }) : <Stack className='movie' spacing={1}>
+                                    <Skeleton className='skeleton' variant='rectangular' width={200} height={280} />
+                                </Stack>
                             }
                         </div>
                     </div>

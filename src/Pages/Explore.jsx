@@ -6,6 +6,7 @@ import image2 from '../assets/Spider-Man_ Across the Spider-Verse (2023).jpg'
 import image3 from '../assets/媽的多重宇宙 (EVERYTHING EVERYWHERE ALL AT ONCE).jpg'
 import image4 from '../assets/The Amazing Spiderman  Movie Review.jpg'
 import image5 from '../assets/download (20).jpg'
+import { Stack, Skeleton } from '@mui/material';
 
 function Explore2() {
   const [search, setSearch] = useState()
@@ -14,6 +15,7 @@ function Explore2() {
   const [searchMovieData, setSearchMovieData] = useState()
   const [pages, setPages] = useState()
   const [number, setNumber] = useState(1)
+  const array = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 
   const getSearchingMovie = async (e, page, urlname) => {
     if (e) {
@@ -106,17 +108,21 @@ function Explore2() {
             className="list">
             {
               searchMovieData && searchMovieData.results ? searchMovieData.results.length > 0 ? searchMovieData.results.map((item, index) => {
-                return <div
-                  onClick={() => {
-                    window.location.href = `/${item.id}`
-                  }}
-                  key={index}
-                  className="item">
-                  <img src={`https://image.tmdb.org/t/p/w300${item.poster_path}`} alt="" />
-                  <h4>{item.title}</h4>
-                  <p>{item.release_date}</p>
-                </div>
-              }) : 'no results' : null
+                  return <div
+                    onClick={() => {
+                      window.location.href = `/${item.id}`
+                    }}
+                    key={index}
+                    className="item">
+                    <img src={`https://image.tmdb.org/t/p/w300${item.poster_path}`} alt="" />
+                    <h4>{item.title}</h4>
+                    <p>{item.release_date}</p>
+                  </div>
+              }) : 'no results' : array.map((item, index) => {
+                return <Stack className='item' spacing={1}>
+                  <Skeleton className='skeleton' variant='rectangular' width={200} height={280} />
+                </Stack>
+              })
             }
           </div>
           <div style={searchingPage ? { display: 'flex' } : { display: 'none' }} className="pagesButtons">

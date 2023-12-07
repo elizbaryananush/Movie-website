@@ -148,6 +148,10 @@ h1 {
             white-space: nowrap;
             gap: 80px;
 
+            .skeleton{
+                border-radius: 10px;
+            }
+
             .popular {
                 display: flex;
                 flex-direction: column;
